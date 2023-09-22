@@ -17,19 +17,19 @@ public:
     for(i = 0; i < max_size; i++){
 
         if(j >= 0)
-            carry += a[j--] == '1' ? 1 : 0;
+            carry += a[j--] - '0';
 
         if(k >= 0)
-            carry += b[k--] == '1' ? 1 : 0;
+            carry += b[k--] - '0';
 
-        temp += to_string(carry%2);
+        temp += (carry%2 + '0');
 
         carry /= 2;
 
     }
 
     if(carry != 0){
-       temp += to_string(carry%2); 
+       temp += (carry%2 + '0'); 
     }
 
     reverse(temp.begin(), temp.end());
