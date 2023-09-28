@@ -8,13 +8,13 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,string> umap;
+        unordered_set<int> uset;
 
         for(int i = 0; i < nums.size(); i++){
-            if(umap[nums[i]] == "EXISTS")
+            if(uset.find(nums[i]) != uset.end())
                 return true;
             else
-                umap[nums[i]] = "EXISTS";
+                uset.insert(nums[i]);
         }
 
         return false;
